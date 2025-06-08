@@ -12,10 +12,12 @@ const supabase = createClient(
 export async function POST(req: Request) {
   const { query } = await req.json()
 
+  // query is the user's question
+
   // 1. Embed the user's query
   const embeddingResponse = await openai.embeddings.create({
     input: query,
-    model: 'text-embedding-3-small', // or 'text-embedding-ada-002'
+    model: 'text-embedding-3-small',
   })
 
   const queryEmbedding = embeddingResponse.data[0].embedding

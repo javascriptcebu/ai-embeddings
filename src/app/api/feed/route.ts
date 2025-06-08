@@ -1,4 +1,3 @@
-// /app/api/rag/route.ts (Next.js 13+ API route)
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import OpenAI from 'openai'
@@ -14,7 +13,7 @@ const supabase = createClient(
 export async function POST(req: Request) {
   const { query } = await req.json()
 
-  console.log({ query })
+  // query is the text to be embedded
 
   async function chunkText(text: string, maxTokens = 500): Promise<string[]> {
     const sentences = text.split('. ')
